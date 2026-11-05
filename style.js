@@ -28,7 +28,7 @@
 
   // ---- сообщение в мессенджер
   const brand = (document.querySelector(".s-bar__brand") || {}).textContent || "";
-  let message = "Здравствуйте! Пишу с сайта «" + brand.trim() + "», точка на Соколиной Горе (8-я улица Соколиной Горы, 8к2).";
+  let message = "Здравствуйте! Пишу с сайта «" + brand.trim() + "», точка на Соколиной Горе (8-я улица Соколиной Горы, д. 8, корп. 2, соор. 3).";
   const bubble = document.querySelector("[data-s-bubble]");
   const setMessage = (t) => { message = t; if (bubble) bubble.textContent = t; };
   const isSlot = (s) => !s || /\{\{/.test(s);
