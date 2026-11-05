@@ -460,3 +460,16 @@ html.s-lb-open { overflow: hidden; }
 .s-widget__alt a { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--c-accent) 70%, transparent); text-underline-offset: 4px; text-decoration-thickness: 2px; }
 @media (max-width: 760px) { .s-wash { grid-template-columns: 1fr; } }
 /* запись на мойку: конец */
+
+/* устройства: начало */
+.s-bar__tel { display: inline-flex; align-items: center; min-height: 44px; }
+.s-bubble__label { font-size: .75rem; }
+@media (max-width: 640px) { .s-bar__brand { min-width: 0; font-size: min(1rem, 3.7vw); } }
+.s-widget, .s-widget fieldset, .s-widget .s-chips, .s-widget .s-chip, .s-widget .s-send { min-width: 0; max-width: 100%; }
+.s-widget .s-chip--row span { min-width: 0; overflow-wrap: anywhere; }
+/* устройства: конец */
+
+/* устройства 2: начало */
+.s-widget .s-send { flex-wrap: wrap; }
+.s-widget .s-send .s-btn { flex: 1 1 8.5rem; min-width: 0; }
+/* устройства 2: конец */
