@@ -509,3 +509,9 @@ html.s-lb-open { overflow: hidden; }
 .s-wash__send .s-btn:first-child { flex: 0 0 auto; }
 .s-wash__send .s-btn:nth-child(2) { flex: 1 1 12rem; }
 @media (max-width: 640px) { .s-wash__send .s-btn, .s-wash__send .s-btn:first-child, .s-wash__send .s-btn:nth-child(2) { flex: 1 1 100%; } }
+
+/* мойка: примечание */
+.s-wash__notes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.s-wash__notes p { margin: 0; padding: 14px 18px; background: var(--c-surface); border: 1px solid var(--hair); border-left: 3px solid var(--c-accent); border-radius: var(--r); font-size: .92rem; line-height: 1.45; color: var(--c-ink-soft); }
+.s-wash__notes b { display: block; color: var(--c-ink); font-weight: 700; margin-bottom: 2px; }
+@media (max-width: 640px) { .s-wash__notes { grid-template-columns: 1fr; } }
