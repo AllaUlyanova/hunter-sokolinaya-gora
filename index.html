@@ -366,5 +366,19 @@
   });
 })();
 </script>
+<script data-widget-pulse>
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest('a[href="#widget"]');
+  if (!a) return;
+  var w = document.getElementById("widget"); if (!w) return;
+  e.preventDefault();
+  var hd = document.querySelector("header"), off = hd ? hd.getBoundingClientRect().height + 12 : 12;
+  window.scrollTo({ top: w.getBoundingClientRect().top + window.pageYOffset - off, behavior: "smooth" });
+  var f = w.querySelector(".s-widget") || w;
+  f.classList.remove("is-pulse"); void f.offsetWidth; f.classList.add("is-pulse");
+  setTimeout(function () { f.classList.remove("is-pulse"); }, 1600);
+  var t = w.querySelector("input[type=radio]:checked"); if (t && t.focus) { try { t.focus({ preventScroll: true }); } catch (x) {} }
+});
+</script>
 </body>
 </html>
