@@ -478,3 +478,17 @@ html.s-lb-open { overflow: hidden; }
 @media (min-width: 641px) { .s-hero h1 { font-size: clamp(1.9rem, 3.3vw, 2.8rem); line-height: 1.08; } }
 @media (max-width: 640px) { .s-hero h1 { font-size: clamp(1.5rem, 7vw, 2.1rem); line-height: 1.08; } }
 /* заголовок длиннее: конец */
+
+/* прожарка: начало */
+.s-sizebox { border: 0; padding: 0; margin: 0; min-width: 0; }
+.s-sizes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); gap: 10px; }
+.s-sizes label { display: grid; gap: 6px; min-width: 0; }
+.s-sizes label > span { font-size: .75rem; color: var(--c-ink-soft); }
+.s-sizes select { width: 100%; min-width: 0; min-height: 46px; font: 500 16px/1.2 var(--f-text); color: var(--c-ink); background: var(--c-canvas); border: 1px solid var(--hair); border-radius: var(--r); padding: 0 12px; color-scheme: dark; }
+.s-sizes select:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 2px; }
+.s-sizes__note { margin: 8px 0 0; font-size: .8rem; color: var(--c-ink-soft); line-height: 1.4; }
+.s-wash__incl { margin: 0; font-size: .92rem; color: var(--c-ink-soft); line-height: 1.45; }
+.s-wash__incl b { color: var(--c-ink); }
+.s-stand__gloss { margin: 0; font-size: .92rem; color: var(--c-ink-soft); }
+.s-stand__gloss b { color: var(--c-ink); }
+/* прожарка: конец */
