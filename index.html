@@ -71,12 +71,8 @@
     </div>
     <div class="s-hero__widget" id="widget"><form class="s-widget" data-s-booking data-days="7" data-closed="" data-slots="08:00,09:00,10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00,20:00,21:00" data-message="Здравствуйте! Хочу записаться на шиномонтаж на Соколиной Горе: {услуга}, {день} в {время}." onsubmit="return false">
       <h2 class="s-widget__title">Запись на шиномонтаж</h2>
-      <fieldset class="s-sizebox"><legend>Размер колёс и тип машины</legend>
-        <div class="s-sizes"><label><span>Размер</span><select data-size-r aria-label="Размер колёс"><option value="13">R13</option><option value="14">R14</option><option value="15">R15</option><option value="16" selected>R16</option><option value="17">R17</option><option value="18">R18</option><option value="19">R19</option><option value="20">R20</option><option value="21">R21</option><option value="22">R22</option></select></label><label><span>Тип машины</span><select data-size-t aria-label="Тип машины"><option value="car" selected>Легковой</option><option value="suv">Кроссовер, внедорожник</option><option value="van">Микроавтобус, минивэн</option></select></label></div>
-        <p class="s-sizes__note">Цена за 4 колеса по таблице ниже; микроавтобусы – по прайсу кроссоверов. RunFlat, низкий профиль от 45, шины с индексом «С» и грязевая резина – плюс 1 000 ₽.</p>
-      </fieldset>
       <fieldset><legend>Услуга</legend>
-        <div class="s-chips s-chips--col"><label class="s-chip s-chip--row"><input type="radio" name="svc" value="0" data-name="Шиномонтаж, 4 колеса: R16, легковой" data-price="4200" data-from="" data-min="" data-dyn checked><span data-dyn-name>Шиномонтаж, 4 колеса: R16, легковой</span><b data-dyn-price>4 200 ₽</b></label><label class="s-chip s-chip--row"><input type="radio" name="svc" value="1" data-name="Вибрация на скорости или увод: диагностика на стенде, 4 колеса" data-price="5000" data-from="1" data-min=""><span>Вибрация или увод: диагностика на стенде, 4 колеса</span><b>от 5 000 ₽</b></label><label class="s-chip s-chip--row"><input type="radio" name="svc" value="2" data-name="Премиум на Hunter Elite, 4 колеса" data-price="8000" data-from="1" data-min=""><span>Премиум на Hunter Elite, 4 колеса</span><b>от 8 000 ₽</b></label><label class="s-chip s-chip--row"><input type="radio" name="svc" value="3" data-name="Правка литого диска" data-price="2000" data-from="1" data-min=""><span>Правка литого диска</span><b>от 2 000 ₽</b></label></div>
+        <div class="s-chips s-chips--col"><label class="s-chip s-chip--row"><input type="radio" name="svc" value="0" data-name="Шиномонтаж" data-price="" data-from="" data-min="" checked><span>Шиномонтаж</span><b>по прайсу</b></label><label class="s-chip s-chip--row"><input type="radio" name="svc" value="1" data-name="Вибрация на скорости или увод: диагностика на стенде, 4 колеса" data-price="5000" data-from="1" data-min=""><span>Вибрация или увод: диагностика на стенде, 4 колеса</span><b>от 5 000 ₽</b></label><label class="s-chip s-chip--row"><input type="radio" name="svc" value="2" data-name="Премиум на Hunter Elite, 4 колеса" data-price="8000" data-from="1" data-min=""><span>Премиум на Hunter Elite, 4 колеса</span><b>от 8 000 ₽</b></label><label class="s-chip s-chip--row"><input type="radio" name="svc" value="3" data-name="Правка литого диска" data-price="2000" data-from="1" data-min=""><span>Правка литого диска</span><b>от 2 000 ₽</b></label></div>
       </fieldset>
       <fieldset><legend>День</legend><div class="s-chips" data-s-days></div></fieldset>
       <fieldset><legend>Время</legend><div class="s-chips" data-s-times></div></fieldset>
@@ -368,26 +364,6 @@
     if (note) { note.hidden = false; setTimeout(function () { note.hidden = true; }, 4000); }
     window.open('https://t.me/' + tg, '_blank', 'noopener');
   });
-})();
-</script>
-<script data-size-calc>
-(function () {
-  var car = { 13: 3300, 14: 3300, 15: 3600, 16: 4200, 17: 4600, 18: 5000, 19: 5600, 20: 6200, 21: 6800, 22: 7400 };
-  var suv = { 13: 4000, 14: 4200, 15: 4800, 16: 6000, 17: 6600, 18: 7000, 19: 7500, 20: 8000, 21: 9000, 22: 9600 };
-  var names = { car: 'легковой', suv: 'кроссовер', van: 'микроавтобус' };
-  var NB = String.fromCharCode(160);
-  var r = document.querySelector('[data-size-r]'), t = document.querySelector('[data-size-t]'), inp = document.querySelector('input[data-dyn]');
-  if (!r || !t || !inp) return;
-  var nm = inp.parentNode.querySelector('[data-dyn-name]'), pr = inp.parentNode.querySelector('[data-dyn-price]');
-  function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, NB) + NB + '\u20bd'; }
-  function upd() {
-    var price = (t.value === 'car' ? car : suv)[r.value];
-    var name = 'Шиномонтаж, 4 колеса: R' + r.value + ', ' + names[t.value];
-    inp.dataset.price = price; inp.dataset.name = name; inp.dataset.from = '';
-    nm.textContent = name; pr.textContent = fmt(price);
-    inp.checked = true;
-  }
-  r.addEventListener('change', upd); t.addEventListener('change', upd);
 })();
 </script>
 </body>
