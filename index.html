@@ -372,12 +372,13 @@ document.addEventListener("click", function (e) {
   if (!a) return;
   var w = document.getElementById("widget"); if (!w) return;
   e.preventDefault();
-  var hd = document.querySelector("header"), off = hd ? hd.getBoundingClientRect().height + 12 : 12;
-  window.scrollTo({ top: w.getBoundingClientRect().top + window.pageYOffset - off, behavior: "smooth" });
-  var f = w.querySelector(".s-widget") || w;
-  f.classList.remove("is-pulse"); void f.offsetWidth; f.classList.add("is-pulse");
-  setTimeout(function () { f.classList.remove("is-pulse"); }, 1600);
-  var t = w.querySelector("input[type=radio]:checked"); if (t && t.focus) { try { t.focus({ preventScroll: true }); } catch (x) {} }
+  var inHeader = !!a.closest("header"), call = w.querySelector('.s-send a[href^="tel:"]');
+  var target = inHeader && call ? call : w, pulse = inHeader && call ? call : (w.querySelector(".s-widget") || w);
+  var hd = document.querySelector("header"), off = hd ? hd.getBoundingClientRect().height + 12 : 12, r = target.getBoundingClientRect();
+  var top = inHeader && call ? r.top + window.pageYOffset - (window.innerHeight - r.height) / 2 : r.top + window.pageYOffset - off;
+  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  pulse.classList.remove("is-pulse"); void pulse.offsetWidth; pulse.classList.add("is-pulse");
+  setTimeout(function () { pulse.classList.remove("is-pulse"); }, 1800);
 });
 </script>
 </body>
