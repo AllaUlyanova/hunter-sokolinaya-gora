@@ -515,3 +515,7 @@ html.s-lb-open { overflow: hidden; }
 .s-wash__notes p { margin: 0; padding: 14px 18px; background: var(--c-surface); border: 1px solid var(--hair); border-left: 3px solid var(--c-accent); border-radius: var(--r); font-size: .92rem; line-height: 1.45; color: var(--c-ink-soft); }
 .s-wash__notes b { display: block; color: var(--c-ink); font-weight: 700; margin-bottom: 2px; }
 @media (max-width: 640px) { .s-wash__notes { grid-template-columns: 1fr; } }
+
+/* подзаголовки прайса */
+.s-board__title { font: 700 1.15rem/1.2 var(--f-display); letter-spacing: 0; text-transform: none; color: var(--c-accent-deep, var(--c-accent)); margin: 0 0 8px; padding-bottom: 10px; border-bottom: 2px solid var(--c-accent); }
+@media (max-width: 640px) { .s-board__title { font-size: 1.05rem; } }
