@@ -492,3 +492,6 @@ html.s-lb-open { overflow: hidden; }
 .s-stand__gloss { margin: 0; font-size: .92rem; color: var(--c-ink-soft); }
 .s-stand__gloss b { color: var(--c-ink); }
 /* прожарка: конец */
+
+/* адрес на первом экране */
+.s-eyebrow__sub { white-space: normal; text-wrap: balance; }
